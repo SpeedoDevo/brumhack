@@ -5,7 +5,7 @@
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/brumhack-dev'
+    uri: process.env.MONGOLAB_URI_DEV
   },
 
   seedDB: true
