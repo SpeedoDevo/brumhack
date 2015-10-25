@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('brumhackApp', [
+  'ngMaterial',
   'ngCookies',
   'ngResource',
   'ngSanitize',

@@ -7,6 +7,10 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
  * App-wide Styles
  */
 
+[ng-click] {
+  cursor: pointer;
+}
+
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
@@ -26,4 +30,8 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 @import 'account/login/login.scss';
 @import 'admin/admin.scss';
 @import 'main/main.scss';
+@import 'playlist-item/playlist-item.scss';
+@import 'room/room.scss';
+@import 'search-item/search-item.scss';
+@import 'server/server.scss';
 // endinjector

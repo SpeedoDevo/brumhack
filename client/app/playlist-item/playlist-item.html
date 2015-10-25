@@ -1,0 +1,14 @@
+<div layout="row" layout-align="start center" layout-margin layout-padding
+ ng-class="{'now-playing': index == nowPlaying, 'past': index < nowPlaying}" class="playlist-item">
+  <div class="video-thumb" flex="30">
+    <img src="http://lorempixel.com/480/360/sports/" alt="" class="video-thumb-img" />
+  </div>
+  <span layout-padding> <span ng-if="index == nowPlaying">Now playing: <br></span> {{item.title}}</span>
+  <span flex></span>
+  <div class="voter" layout="column" layout-align="center center" ng-if="!hideVote">
+    <i class="material-icons" layout-align="center center" ng-click="up()">keyboard_arrow_up</i>
+    <span>{{item.votesCnt}}</span>
+    <i class="material-icons" layout-align="center center" ng-click="down()">keyboard_arrow_down</i>
+  </div>
+  <i class="material-icons" ng-click="delete()" ng-if="!hideVote">delete</i>
+</div>
