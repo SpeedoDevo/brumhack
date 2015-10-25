@@ -4,7 +4,8 @@
   Schema = mongoose.Schema;
   var db = mongoose.connection;
   var socket = require('./room.socket');
-
+  var Chance = require('chance'),
+  chance = new Chance();
   var RoomSchema = new Schema({
     userID: String,
     code: String,
@@ -15,7 +16,6 @@
       pornChecked: Boolean,
       isPorn: Boolean,
       offset: Number,
-      kappa: String,
       countVote: Number,
       votes: [{
         sessionID: String,
@@ -31,6 +31,18 @@
   //   })};
 
   RoomSchema.method({
+    createRoom: function(userId, familyFilter){
+      var Room = mongoose.model('Room', RoomSchema);
+      var newRoom = new Room;
+      newRoom.userID = userId;
+      newRoom.code = chance.word({length:4});
+      newRoom.familyfilter = familyFilter;
+      newRoom.playlist = [];
+      newRoom.playlist.votes = [];
+      newRoom.save();
+
+
+    },
     addSong: function(song){
       var newSong = {
         url: song.url,
@@ -48,7 +60,7 @@
 
         if(urlId == this.playlist[i].urlID && this.userID == userId ){
           this.playlist.splice(i, 1);
-          console.log(this.playlist);
+
 
         }
       }
@@ -130,7 +142,7 @@
           }
       }
       }
-  console.log(this.playlist);
+
     },
     downvote: function(sessionId, urlId){
       var occurances = 0;
