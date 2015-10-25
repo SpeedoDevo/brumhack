@@ -31,7 +31,9 @@ exports.upvote = function(req, res){
   //  console.log(err);
     if (err) { return handleError(res, err); }
     if(!room) { return res.status(404).send('Not Found'); }
-    room.upvote(req.sessionID,req.body.urlID);
+    console.log(req.body.userID);
+    room.sortPlaylist();
+  //  room.removeSong(req.body.urlID,req.body.userID);
   //  room.countvotes();
     return res.status(200).end();
   })

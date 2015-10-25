@@ -4,27 +4,34 @@
 
 'use strict';
 
-var Room = require('./room.model');
+var socketServer;
 
 exports.register = function(socket) {
   // Room.schema.post('save', function (doc) {
   //   onSave(socket, doc);
   // });
-  Room.schema.post('upvote', function(doc){
-    onUpvote(socket,doc);
-  })
-  Room.schema.post('upvote', function(doc){
-    onDownvote(socket,doc);
-  })
+  // console.log(Room);
+  // Room.schema.post('upvote', function(doc){
+  //   console.log("log it bitch");
+  //   onUpvote(socket,doc);
+  // })
+  // Room.schema.post('downvote', function(doc){
+  //   onDownvote(socket,doc);
+  // })
+  //
+  // Room.schema.post('remove', function (doc) {
+  //   onRemove(socket, doc);
+  // });
+    
+  socketServer =  socket;
 
-  Room.schema.post('remove', function (doc) {
-    onRemove(socket, doc);
-  });
 }
 
-function onSave(socket, doc, cb) {
-  socket.emit('room:save', doc);
+exports.up = function(doc){
+  console.log("kappa");
+  socketServer.emit('room:save', doc);
 }
+
 function onUpvote(socket, doc, cb){
   socket.emit('room:playlist:like', doc);
 }

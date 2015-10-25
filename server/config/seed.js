@@ -32,14 +32,16 @@ Thing.find({}).remove(function() {
 
 Room.find({}).remove(function() {
   Room.create({
-      owner: "Mike",
+      userID: "Mike",
       code: "qwer",
       familyFilter: false,
       playlist:[{
         url: "www.youtube.com",
         urlID: 1,
-        porn_checked: true,
+        pornChecked: false,
+        isPorn: false,
         offset: 10,
+        countVote: 6,
         votes: [{
           sessionID: 25,
           isUp: true
@@ -49,8 +51,10 @@ Room.find({}).remove(function() {
       },{
         url: "www.youtube.lol",
         urlID: 3,
-        porn_checked: true,
+        pornChecked: false,
+        isPorn: false,
         offset: 10,
+        countVote: 7,
         votes: [{
           userID: 25,
           isUp: true
