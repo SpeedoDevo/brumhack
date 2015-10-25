@@ -6,7 +6,7 @@
 'use strict';
 
 var Thing = require('../api/thing/thing.model');
-var User = require('../api/user/user.model');
+var Room = require('../api/room/room.model');
 
 Thing.find({}).remove(function() {
   Thing.create({
@@ -30,18 +30,52 @@ Thing.find({}).remove(function() {
   });
 });
 
-User.find({}).remove(function() {
-  User.create({
-    provider: 'local',
-    name: 'Test User',
-    email: 'test@test.com',
-    password: 'test'
+Room.find({}).remove(function() {
+  Room.create({
+      userID: "Mike",
+      code: "qwer",
+      familyFilter: false,
+      playlist:[{
+        url: "www.youtube.com",
+        urlID: 1,
+        pornChecked: false,
+        isPorn: false,
+        offset: 10,
+        countVote: 6,
+        votes: [{
+          sessionID: 25,
+          isUp: true
+        },{
+        sessionID: 10,
+        isUp: true}]
+      },{
+        url: "www.youtube.lol",
+        urlID: 3,
+        pornChecked: false,
+        isPorn: false,
+        offset: 10,
+        countVote: 7,
+        votes: [{
+          userID: 25,
+          isUp: true
+        }]
+      }]
+
+
   }, {
-    provider: 'local',
-    role: 'admin',
-    name: 'Admin',
-    email: 'admin@admin.com',
-    password: 'admin'
+    owner: "Tim",
+    code: "abcd",
+    familyFilter: false,
+    playlist:[{
+      url: "www.overclock.net",
+      urlID:4,
+      porn_checked: true,
+      offset: 10,
+      votes: [{
+        userID: 20,
+        isUp: true
+      }]
+    }]
   }, function() {
       console.log('finished populating users');
     }
