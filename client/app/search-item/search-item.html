@@ -1,0 +1,9 @@
+<div layout="row" layout-align="start center" layout-padding ng-click="add()" class="search-item">
+  <div class="video-thumb" flex="20" layout-align="end center" layout="row">
+    <img ng-src="{{item.snippet.thumbnails.default.url}}" alt="" class="video-thumb-img" />
+  </div>
+  <div class="" flex>
+    <span layout="row" flex><h3 class="search-title">{{item.snippet.title}}</h3><span flex></span><p class="search-title">{{item.length}}</p></span>
+    <span>{{(item.snippet.description | limitTo:100) + " ..."}}</span>
+  </div>
+</div>

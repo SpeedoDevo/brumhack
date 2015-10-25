@@ -1,0 +1,33 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div layout="row">
+  <div layout="column" class="search-col room-container" flex-gt-md="70" flex="100"
+   ng-show="sizeCheck() || !stateCheck()" layout-align="start center">
+    <div class="search-box-container" layout="row" layout-align="center center">
+      <form name="searchForm" layout="row" flex="80">
+        <md-input-container flex>
+          <label>Search on YouTube</label>
+          <input ng-model="query">
+        </md-input-container>
+        <div layout="column" layout-align="center center">
+          <md-button class="round-button md-primary" aria-label="search" ng-click="search()">
+            <md-icon md-font-set="material-icons">search</md-icon>
+          </md-button>
+        </div>
+      </form>
+    </div>
+    <div flex>
+      <div class="results">
+        <search-item ng-repeat="item in results" item="item"></search-item>
+      </div>
+    </div>
+  </div>
+  <div class="playlist-col room-container" layout="column" flex-gt-md="30" flex="100" ng-if="sizeCheck() || stateCheck()">
+    <playlist-item ng-repeat="item in playlist" item="item" index="$index" now-playing="nowPlaying"></playlist-item>
+  </div>
+</div>
+
+<md-button class="md-fab fab-add" aria-label="search" ng-click="switch()" ng-switch="stateCheck()" ng-if="!sizeCheck()">
+  <md-icon class="material-icons" ng-switch-when="true">add</md-icon>
+  <md-icon class="material-icons" ng-switch-when="false">arrow_back</md-icon>
+</md-button>

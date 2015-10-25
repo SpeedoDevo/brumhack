@@ -1,0 +1,27 @@
+<md-dialog aria-label="List dialog">
+  <md-toolbar class="md-accent">
+    <div class="md-toolbar-tools">
+      <h2>CREATE A NEW ROOM</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="cancel()">
+        <md-icon md-font-set="material-icons">close</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <md-dialog-content>
+    <form name="new-room" layout="row" flex-sm="90" flex-gt-md="50" flex-gt-lg="35">
+      <md-switch ng-model="familyFilter" aria-label="family filter">
+        family filter
+      </md-switch>
+      <div layout="column" layout-align="center center">
+        <md-button class="md-raised" layout-margin ng-click="create()" flex="50">CREATE</md-button>
+      </div>
+    </form>  
+  </md-dialog-content>
+  <!-- <div class="md-actions">
+    <md-button ng-click="cancel()" class="md-primary">
+      CANCEL
+    </md-button>
+  </div> -->
+</md-dialog>

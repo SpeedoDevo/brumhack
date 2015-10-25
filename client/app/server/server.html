@@ -1,0 +1,13 @@
+<div class="server-container" layout="row">
+  <div class="video-container" flex="80">
+    video
+  </div>
+  <div class="sidebar-container" flex="20" layout="column">
+    <div class="room-code" layout-padding="">
+      <h1>Room Code: {{room.code}}</h1>
+    </div>
+    <div class="playlist" flex>
+      <playlist-item ng-repeat="item in room.playlist" item="item" index="$index" now-playing="nowPlaying" hide-vote></playlist-item>
+    </div>
+  </div>
+</div>
